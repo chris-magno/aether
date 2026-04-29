@@ -273,6 +273,7 @@ checkoutBtn.onclick = () => {
     showToast("Your cart is empty");
     return;
   }
+  resetCheckoutSteps();
   showPage("checkout");
 };
 document.getElementById("to-method").onclick = () => {
@@ -300,7 +301,18 @@ document.getElementById("confirm-checkout").onclick = () => {
   updateCartCount();
   document.getElementById("step-review").classList.add("hidden");
   document.getElementById("step-success").classList.remove("hidden");
+  setTimeout(() => {
+    showPage("products");
+    resetCheckoutSteps();
+  }, 1800);
 };
+
+function resetCheckoutSteps() {
+  document.getElementById("step-shipping").classList.remove("hidden");
+  document.getElementById("step-method").classList.add("hidden");
+  document.getElementById("step-review").classList.add("hidden");
+  document.getElementById("step-success").classList.add("hidden");
+}
 
 // ----- Toast -----
 function showToast(msg) {

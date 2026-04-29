@@ -749,11 +749,11 @@ input, select {
 #checkout-steps {
   display: grid;
   gap: 1.5rem;
-  max-width: 520px;
+  max-width: 680px;
 }
 
 .step {
-  padding: 1.5rem;
+  padding: 1.8rem;
   border-radius: var(--radius);
   border: 1px solid var(--stroke);
   background: white;
