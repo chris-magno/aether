@@ -5,7 +5,7 @@ const products = [
     name: "Æ-1",
     price: 1299,
     image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
-    description: "The Aether Æ-1. Ultra‑minimalist design, powered by Neural Core 6.",
+    description: "The Aether Æ-1. Ultra-minimalist design with Neural Core 6 and all-day focus tuning.",
     variants: ["Obsidian Black", "Cloud Silver", "Aura Blue"],
     stock: true
   },
@@ -14,7 +14,7 @@ const products = [
     name: "Æ Pods",
     price: 249,
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80",
-    description: "Seamless sound integration with Æ devices.",
+    description: "Seamless sound integration with Æ devices and adaptive spatial balance.",
     variants: ["Single Color"],
     stock: true
   },
@@ -23,7 +23,7 @@ const products = [
     name: "Æ-2",
     price: 1599,
     image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80",
-    description: "Extended architecture with dual-layer glass and adaptive core.",
+    description: "Extended architecture with dual-layer glass, adaptive core, and thermal precision.",
     variants: ["Graphite", "Mist"],
     stock: true
   },
@@ -32,7 +32,7 @@ const products = [
     name: "Æ Shell",
     price: 119,
     image: "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=900&q=80",
-    description: "Precision shell with soft-edge profile and ceramic finish.",
+    description: "Precision shell with soft-edge profile, ceramic finish, and impact micro-buffering.",
     variants: ["Obsidian", "Sand"],
     stock: true
   },
@@ -41,7 +41,7 @@ const products = [
     name: "Æ Time",
     price: 499,
     image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=900&q=80",
-    description: "Minimal chronos with neural-assisted focus modes.",
+    description: "Minimal chronos with neural-assisted focus modes and breathable titanium frame.",
     variants: ["Lunar", "Onyx"],
     stock: true
   },
@@ -50,7 +50,7 @@ const products = [
     name: "Æ Tab",
     price: 799,
     image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=900&q=80",
-    description: "Glass-laminate tablet built for clarity and flow.",
+    description: "Glass-laminate tablet built for clarity, flow, and studio-grade pen response.",
     variants: ["Graphite", "Silver"],
     stock: true
   },
@@ -59,7 +59,7 @@ const products = [
     name: "Æ Lens",
     price: 899,
     image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80",
-    description: "Precision optics for studio-grade capture.",
+    description: "Precision optics for studio-grade capture with low-light stability.",
     variants: ["Black"],
     stock: true
   },
@@ -68,7 +68,7 @@ const products = [
     name: "Æ Keys",
     price: 199,
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80",
-    description: "Minimal keyboard with soft-travel tactile feel.",
+    description: "Minimal keyboard with soft-travel tactile feel and silent mechanical switches.",
     variants: ["Cloud", "Graphite"],
     stock: true
   }
@@ -276,6 +276,13 @@ checkoutBtn.onclick = () => {
   showPage("checkout");
 };
 document.getElementById("to-method").onclick = () => {
+  const fullName = document.getElementById("ship-name").value.trim();
+  const nameParts = fullName.split(/\s+/).filter(Boolean);
+  if (nameParts.length < 2) {
+    showToast("Please enter your full name");
+    document.getElementById("ship-name").focus();
+    return;
+  }
   document.getElementById("step-shipping").classList.add("hidden");
   document.getElementById("step-method").classList.remove("hidden");
 };
